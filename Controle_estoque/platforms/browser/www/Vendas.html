@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" type="text/css" href="mobileui/style.css">
+        <meta name="format-detection" content="telephone=no">
+        <meta charset="utf-8">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <title>Controle de estoque</title>
+    </head>
+    <body class="padding grey-50 has-header has-sub-header">
+
+      <script type="text/javascript" src="cordova.js"></script>
+      <script type="text/javascript" src="mobileui/mobileui.js"></script>
+      <script type="text/javascript" src="js/index.js"></script>
+      <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+
+      <div class="header blue">
+            <div class="left">
+               <button class="icon ion-ios-arrow-back" onclick="voltar()"></button>
+            </div>
+            <h3 style="text-align: center;">Venda</h3>
+          </div>
+
+          <div class="list">
+            <div class="item icon ion-search">
+                <input type="text" placeholder="Pesquisar">
+            </div>
+          </div>
+          <br>
+          
+          <div class="list">
+            <div class="item">
+                <h3>Anel</h3>
+                <p>Quantidade: </p><input type="number" placeholder="00">
+                <div class="right"><button class="icon ion-trash-b red" style="padding: 10px;"></button></div>
+            </div>
+          </div>
+        
+          <br>
+          <div class="item">
+            <button class="blue radius full">Baixar</button>
+          </div>
+        </div>
+    </body>
+</html>
+
+<script>
+    function voltar(){
+        window.location.assign("index.html");
+    }
+</script>

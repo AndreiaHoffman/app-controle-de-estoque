@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="mobileui/style.css">
+  <meta name="format-detection" content="telephone=no">
+  <meta charset="utf-8">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport"
+    content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <title>Controle de estoque</title>
+</head>
+
+<body class="padding grey-50 has-header has-sub-header">
+
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="mobileui/mobileui.js"></script>
+  <script type="text/javascript" src="js/banco.js"></script>
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script>
+    window.onload = function(){
+      cadastro_view();
+    }
+  </script>
+
+
+  <div class="header blue">
+    <div class="left">
+      <button class="icon ion-ios-arrow-back" onclick="voltar()"></button>
+    </div>
+    <h3 style="text-align: center; color: cornsilk;">Estoque</h3>
+  </div>
+
+  <div class="item white mark border-orange margin-button shadow">
+    <table class="table">
+      <thead>
+        <tr></tr>
+      </thead>
+      <tbody id="produto_lista">
+      </tbody>
+    </table>
+  </div>
+
+</body>
+
+</html>
+
+<!--<h2><strong id="produto">Anel</strong></h2>
+    Quant: <label class="text-grey">2</label></br>
+    Preço: R$ <label class="text-grey">20,00</label>
+    <button class="orange icon-text small" style="margin-left: 130px;" onclick="teste()">
+      <i class="icon ion-navicon-round"></i><a href="#" style="color: white;"> Detalhes</a>
+    </button>-->
