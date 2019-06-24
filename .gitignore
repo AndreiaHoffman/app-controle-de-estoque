@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/app-controle-de-estoque/v16/Browse.VC.db
+/.vs/app-controle-de-estoque/config/applicationhost.config
+/.vs
