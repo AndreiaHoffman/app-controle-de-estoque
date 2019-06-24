@@ -20,33 +20,33 @@
     <script type="text/javascript" src="js/banco.js"></script>
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 
-    <div class="header blue">
+    <div class="header grey-700">
         <div class="left">
             <button class="icon ion-ios-arrow-back" onclick="voltarEstoque()"></button>
         </div>
-        <h3 style="text-align: center; color: cornsilk;">Detalhes</h3>
+        <h3 style="text-align: center;">Detalhes</h3>
     </div>
 
     <div class="list">
         <div class="item">
             <label class="text-grey-500">Produto</label>
-            <input type="text" value="produto">
+            <input type="text" id="produto_nome_update">
         </div>
         <div class="item">
             <label class="text-grey-500">Descrição</label>
-            <input type="text" value="descricao">
+            <input type="text" id="produto_descricao_update">
         </div>
         <div class="item">
             <label class="text-grey-500">Quantidade</label>
-            <input type="text" value="quantidade">
+            <input type="text" id="produto_id_quant">
         </div>
         <div class="item">
             <label class="text-grey-500">Preço</label>
-            <input type="text-grey-500" value="preco">
+            <input type="text-grey-500" id="produto_id_preco">
         </div>
     </div>
     <div class="buttons-group full" style="margin-top: 180px;">
-        <button class="blue-600 border-blue-600 radius-left radius-right">
+        <button class="blue-600 border-blue-600 radius-left radius-right" onclick="cadastro_update()">
             <i class="icon ion-loop"></i>Alterar
         </button>
         <button class="red-600 border-red-600 radius-right radius-left"><i class="icon ion-close-round"></i>Excluir</button>
@@ -59,5 +59,10 @@
 <script>
     function voltarEstoque(){
         window.location.assign("Estoque.html");
+    }
+
+    window.onload = function(){
+       // cadastro_update_dados();
+       // cadastro_update();
     }
 </script>
