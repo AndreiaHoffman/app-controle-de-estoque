@@ -51,28 +51,23 @@ function cadastro_view_data(tx, results) {
     var len = results.rows.length;
 
     for (var i = 0; i < len; i++) {
-        $("#produto_lista").append("<tr class='produto_item_lista' id='produto_item_" + results.rows.item(i).id + "'>" +
+        $("#produto_lista").append("<div class='item white mark border-blue-grey-200 margin-button shadow'>" +
+            "<tr class='produto_item_lista' id='produto_item_" + results.rows.item(i).id + "'>" +
             "<td><h3>" + results.rows.item(i).nome + "</h3></td>" +
-            "</tr>");
+            "<td><p>Quantidade: <label class='text-grey'>" + results.rows.item(i).quantidade + "</label></p></td>"+
+            "<div class='right' style='margin-top:-45px;'><button class='right grey-700 icon-text cyan'>" +
+            "<i class='ion-navicon-round'></i><a href='Busca_estoque.html' style='color: white;'> Detalhes</a>" +
+            "</button></div>" +
+            "</tr></div><div class='space'></div>");
     }
 
+}
+
+function AbrirID(id){
+	window.open("results.rows.item(i).id");
 }
 
 //função de voltar tela
 function voltar() {
     window.location.assign("index.html");
 }
-
-
-// codigo completo do estoque
-/*for (var i = 0; i < len; i++) {
-        $("#Estoque_select").append("<div id='item_" + results.rows.item(i).id + "'>" +
-            "<strong><h2>" + results.rows.item(i).nome + "</h2></strong>" +
-            "Descrição: <label class='text-grey'>" + results.rows.item(i).descricao + "<label>" +
-            "Quantidade: <label class='text-grey'>" + results.rows.item(i).quantidade + "</label>" +
-            "Preço: <label class='text-grey'>" + results.rows.item(i).preco + "</label>" +
-            "<button class='orange icon-text small' style='margin-left: 130px;'>" +
-            "<i class='icon ion-navicon-round'></i><a href='#' style='color: white;'> Detalhes</a>" +
-            "</button>" +
-            "</div>");
-    } */

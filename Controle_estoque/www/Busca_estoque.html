@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="mobileui/style.css">
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="utf-8">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <title>Controle de estoque</title>
+</head>
+
+<body class="padding grey-50 has-header has-sub-header">
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="mobileui/mobileui.js"></script>
+    <script type="text/javascript" src="js/banco.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+
+    <div class="header blue">
+        <div class="left">
+            <button class="icon ion-ios-arrow-back" onclick="voltarEstoque()"></button>
+        </div>
+        <h3 style="text-align: center; color: cornsilk;">Detalhes</h3>
+    </div>
+
+    <div class="list">
+        <div class="item">
+            <label class="text-grey-500">Produto</label>
+            <input type="text" value="produto">
+        </div>
+        <div class="item">
+            <label class="text-grey-500">Descrição</label>
+            <input type="text" value="descricao">
+        </div>
+        <div class="item">
+            <label class="text-grey-500">Quantidade</label>
+            <input type="text" value="quantidade">
+        </div>
+        <div class="item">
+            <label class="text-grey-500">Preço</label>
+            <input type="text-grey-500" value="preco">
+        </div>
+    </div>
+    <div class="buttons-group full" style="margin-top: 180px;">
+        <button class="blue-600 border-blue-600 radius-left radius-right">
+            <i class="icon ion-loop"></i>Alterar
+        </button>
+        <button class="red-600 border-red-600 radius-right radius-left"><i class="icon ion-close-round"></i>Excluir</button>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function voltarEstoque(){
+        window.location.assign("Estoque.html");
+    }
+</script>
