@@ -26,7 +26,8 @@
         </div>
         <h3 style="text-align: center;">Detalhes</h3>
     </div>
-    <input type="hidden" id="produto_id_delete">
+    <input type="hidden" id="produto_id_update">
+    <input type="hidden" id="ProdutoId">
     <div class="list">
         <div class="item">
             <label class="text-grey-500">Produto</label>
@@ -46,10 +47,10 @@
         </div>
     </div>
     <div class="buttons-group full" style="margin-top: 180px;">
-        <button class="blue-600 border-blue-600 radius-left radius-right" onclick="update_view()">
+        <button class="blue-600 border-blue-600 radius-left radius-right" onclick="alert('Alterado com sucesso!', 'Produto'), update_view()">
             <i class="icon ion-loop"></i>Alterar
         </button>
-        <button class="red-600 border-red-600 radius-right radius-left" onclick="Delete()"><i class="icon ion-close-round"></i>Excluir</button>
+        <button class="red-600 border-red-600 radius-right radius-left" onclick="deleteItem()"><i class="icon ion-close-round"></i>Excluir</button>
     </div>
 
 </body>
@@ -64,4 +65,6 @@
     window.onload = function () {
        detalhes_view();
     }
+
+    
 </script>
