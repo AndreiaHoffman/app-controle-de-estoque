@@ -125,18 +125,18 @@ function Delete(tx){
 
 function deleteItem(){
     alert({
-      title:'Alert',
-      message:'Are you sure you want to delete this item?',
+      title:'Alerta',
+      message:'Deseja excluir o produto?',
       class:'red',
       buttons:[
         {
         
-          label: 'YES',
+          label: 'SIM',
           class:'red-900',
           function: delete_view()
         },
         {
-          label:'NO',
+          label:'NÃO',
           class:'text-white'
         }
       ]
