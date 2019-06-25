@@ -20,7 +20,7 @@
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 
 
-  <div class="header blue">
+  <div class="header grey-700">
     <div class="left">
       <button class="icon ion-ios-arrow-back" onclick="voltar()"></button>
     </div>
@@ -28,11 +28,10 @@
   </div>
   <div class="header pinl sub shadow tab">
     <button class="ion-plus-round" onclick="openTab('novo_produto')">Novo</button>
-    <button class="ion-ios-loop-strong" onclick="openTab('alterar_produto')">Alterar</button>
   </div>
 
   <div class="tab-content active" id="novo_produto">
-    <h4>Cadastrar novo produto</h4>
+    <div class="space"></div>
     <div class="list">
       <input type="hidden" placeholder="Id">
       <div class="item">
@@ -47,35 +46,11 @@
       <div class="item">
         <input type="text" placeholder="Preço R$" id="preco_produto">
       </div>
-      <div class="item">
-        <button class="blue radius full" onclick="cadastro_insert(), alert('Salvo com sucesso!')">Salvar</button>
-      </div>
     </div>
-  </div>
-
-  <div class="tab-content" id="alterar_produto">
-    <h4>Alterar produto</h4>
-    <div class="list">
-      <div class="item icon ion-search">
-        <input type="text" placeholder="Pesquisar">
+    <div class="space"></div>
+    <div class="item">
+        <button class="grey-700 radius full" onclick="cadastro_insert(), alert('Salvo com sucesso!')"><i class="ion-android-checkbox-outline "></i>Salvar</button>
       </div>
-    </div>
-    <br>
-    <div class="list">
-      <input type="hidden" placeholder="Id">
-      <div class="item">
-        <input type="text" placeholder="Nome" id="nome_produto">
-      </div>
-      <div class="item">
-        <input type="text" placeholder="Descrição" id="desc_produto">
-      </div>
-      <div class="item">
-        <input type="text" placeholder="Quantidade" id="quant_produto">
-      </div>
-      <div class="item">
-        <button class="blue radius full" onclick="inserir()">Alterar</button>
-      </div>
-    </div>
   </div>
 
 </body>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport"
-          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <title>Controle de estoque</title>
@@ -26,7 +26,7 @@
         </div>
         <h3 style="text-align: center;">Detalhes</h3>
     </div>
-    <input type="hidden" id="produto_id_delete">
+
     <div class="list">
         <div class="item">
             <label class="text-grey-500">Produto</label>
@@ -42,14 +42,14 @@
         </div>
         <div class="item">
             <label class="text-grey-500">Preço</label>
-            <input type="text-grey-500" id="produto_preco_update">
+            <input type="text-grey-500" id="produto_id_preco">
         </div>
     </div>
     <div class="buttons-group full" style="margin-top: 180px;">
-        <button class="blue-600 border-blue-600 radius-left radius-right" onclick="update_view()">
+        <button class="blue-600 border-blue-600 radius-left radius-right" onclick="cadastro_update()">
             <i class="icon ion-loop"></i>Alterar
         </button>
-        <button class="red-600 border-red-600 radius-right radius-left" onclick="Delete()"><i class="icon ion-close-round"></i>Excluir</button>
+        <button class="red-600 border-red-600 radius-right radius-left"><i class="icon ion-close-round"></i>Excluir</button>
     </div>
 
 </body>
@@ -57,11 +57,15 @@
 </html>
 
 <script>
-    function voltarEstoque() {
+    function voltarEstoque(){
         window.location.assign("Estoque.html");
     }
 
-    window.onload = function () {
-       detalhes_view();
+    window.onload = function(){
+        cadastro_view();
+       // cadastro_update_dados();
+       // cadastro_update();
     }
+
+
 </script>

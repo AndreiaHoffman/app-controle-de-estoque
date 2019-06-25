@@ -11,3 +11,12 @@
     height: 150px;
     margin-left: 40px;
 }
+#tela_parede{
+    background-image:url('../img/shopping.png');
+    background-size: 500px;
+    background-repeat:no-repeat;
+    margin-top: 100px;
+}
+#button_produto{
+    padding-block: 20px;
+}
