@@ -19,19 +19,21 @@
   <script type="text/javascript" src="mobileui/mobileui.js"></script>
   <script type="text/javascript" src="js/banco.js"></script>
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <script>
-    window.onload = function(){
-      cadastro_view();
-    }
-  </script>
-
-
+  <!--tirar se não funcionar o pdf-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"
+    integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs"
+    crossorigin="anonymous"></script>
+ 
   <div class="header grey-700">
     <div class="left">
       <button class="icon ion-ios-arrow-back" onclick="voltar()"></button>
     </div>
+    <div class="right">
+      <h5><button onclick="cont()">PDF</button></h5>
+    </div>
     <h3 style="text-align: center;">Estoque</h3>
   </div>
+
 
   <div>
     <table class="table">
@@ -46,3 +48,16 @@
 </body>
 
 </html>
+
+<script>
+  window.onload = function () {
+    cadastro_view();
+  }
+
+  function cont() {
+    var doc = new jsPDF()
+    doc.text("teste")
+    doc.save('a4.pdf')
+  }
+
+</script>

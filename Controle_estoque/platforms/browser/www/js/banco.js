@@ -108,10 +108,37 @@ function update(tx) {
     var produto_id_novo = $("#produto_id_update").val();
     var produto_nome_novo = $("#produto_nome_update").val();
     var produto_desc_novo = $("#produto_descricao_update").val();
+    var produto_quant_novo = $("#produto_quant_update").val();
+    var produto_preco_novo = $("#produto_preco_update").val();
 
-    tx.executeSql('UPDATE cadastro SET nome = "'+produto_nome_novo+'", descricao = "'+produto_desc_novo+'" WHERE id = "'+produto_id_novo+'"');
-
+    tx.executeSql('UPDATE cadastro SET nome = "' + produto_nome_novo + '", descricao = "' + produto_desc_novo + '", quantidade= "' + produto_quant_novo + '", preco = "' + produto_preco_novo + '" WHERE id = "' + produto_id_novo + '"');
 }
 
+//função de excluir
+function delete_view(){
+    db.transaction(Delete, errorDB, sucessDB);
+}
+function Delete(tx){
+    var produtoId = localStorage.getItem('ProdutoId');
+    tx.executeSql('DELETE FROM cadastro WHERE id = "'+produtoId+'"');
+}
 
-
+function deleteItem(){
+    alert({
+      title:'Alerta',
+      message:'Deseja excluir o produto?',
+      class:'red',
+      buttons:[
+        {
+        
+          label: 'SIM',
+          class:'red-900',
+          function: delete_view()
+        },
+        {
+          label:'NÃO',
+          class:'text-white'
+        }
+      ]
+    });
+  }

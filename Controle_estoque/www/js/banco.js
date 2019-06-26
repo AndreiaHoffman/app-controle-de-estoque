@@ -142,3 +142,43 @@ function deleteItem(){
       ]
     });
   }
+
+  //pesquisar produto
+  function pesquisa(){
+    db.transaction(pesquisa_view_db, errorDB, sucessDB);
+  
+  }
+
+  function pesquisa_view_db(tx){
+    tx.executeSql('SELECT * FROM cadastro', [], pesquisa_view_data, errorDB);
+  }
+
+  function pesquisa_view_data(tx, results){
+    $("#pesquisa_lista").empty();
+    var len = results.rows.length;
+
+    for (var i = 0; i < len; i++) {
+    $("#pesquisa_lista").append("<ul id='teste'>"+
+      "<li><a href='#'>"+results.rows.item(i).nome+"</a></li>"+
+      "</ul>")
+    }
+  }
+
+  function search() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById('myinput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById('teste');
+    li = ul.getElementsByTagName('li');
+
+    for(i=0 ; i< li.length; i++){
+        a = li[i].getElementsByTagName('a')[0];
+        if(a.innerHTML.toUpperCase().indexOf(filter) > -1){
+            li[i].style.display = "";
+        }
+
+        else{
+            li[i].style.display = 'none';
+        }
+    }
+}
