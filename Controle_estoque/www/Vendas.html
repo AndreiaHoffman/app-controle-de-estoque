@@ -1,66 +1,69 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-    <head>
+
+<head>
     <link rel="stylesheet" type="text/css" href="mobileui/style.css">
-        <meta name="format-detection" content="telephone=no">
-        <meta charset="utf-8">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <title>Controle de estoque</title>
-    </head>
-    <body class="padding grey-50 has-header has-sub-header">
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="utf-8">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+    <title>Controle de estoque</title>
+</head>
 
-      <script type="text/javascript" src="cordova.js"></script>
-      <script type="text/javascript" src="mobileui/mobileui.js"></script>
-      <script type="text/javascript" src="js/banco.js"></script>
-      <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<body class="padding grey-50 has-header has-sub-header">
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="mobileui/mobileui.js"></script>
+    <script type="text/javascript" src="js/banco.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.combobox.js"></script>
 
-      <div class="header grey-700">
-            <div class="left">
-               <button class="icon ion-ios-arrow-back" onclick="voltar()"></button>
-            </div>
-            <h3 style="text-align: center;">Venda</h3>
-          </div>
-
-          <div class="list">
-            <div class="item icon ion-search">
-                <input type="text" id="myinput" placeholder="Pesquisar" onclick="pesquisa()" onkeyup="search()">
-            </div>
-          </div>
-          <br>
-
-          <div>
-              <table class="table">
-                <thead>
-                  <tr></tr>
-                </thead>
-                <tbody id="pesquisa_lista">
-                </tbody>
-              </table>
-            </div>
-          
-          <div class="list">
-            <div class="item">
-                <h3>Anel</h3>
-                <p>Quantidade: </p><input type="number" placeholder="00">
-                <div class="right"><button class="icon ion-trash-b red" style="padding: 10px;"></button></div>
-            </div>
-          </div>
-        
-          <br>
-          <div class="item">
-            <button class="grey-700 radius full">Baixar</button>
-          </div>
+    <div class="header grey-700">
+        <div class="left">
+            <button class="icon ion-ios-arrow-back" onclick="voltar()"></button>
         </div>
-    </body>
+        <h3 style="text-align: center;">Venda</h3>
+    </div>
+
+        <h4>Buscar produto:</h4>
+        <div class="list shadow radius white" style="font-size: 20px;">
+            <div class="right">
+            <button class="icon ion-search text-grey-400"></button>
+        </div>
+            <select id="pesqsuisar">
+                <option value=""></option>
+            </select>
+        </div>
+
+    <div class="space"></div>
+    <div class="list">
+        <div class="item">
+            <h3>Anel</h3>
+            <p>Quantidade: </p><input type="number" class="align-right">
+            <div class="right"><button class="icon ion-trash-b red" style="padding: 10px;"></button></div>
+        </div>
+    </div>
+
+    <br>
+    <div class="item">
+        <button class="grey-700 radius full">Baixar</button>
+    </div>
+</body>
+
 </html>
 
 <script>
-    function voltar(){
+    function voltar() {
         window.location.assign("index.html");
     }
 
-    
+    window.onload = function () {
+        venda_view();
+        $('#pesqsuisar').combobox();
+    }
+
 </script>
