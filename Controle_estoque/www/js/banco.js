@@ -116,7 +116,7 @@ function update(tx) {
 
 //função de excluir
 function delete_view() {
-    db.transaction(Delete, errorDB, sucessDB);
+    
 }
 function Delete(tx) {
     var produtoId = localStorage.getItem('ProdutoId');
@@ -130,18 +130,24 @@ function deleteItem() {
         class: 'red',
         buttons: [
             {
-
                 label: 'SIM',
                 class: 'red-900',
-                function: delete_view()
+                onclick: function(){
+                    db.transaction(Delete, errorDB, sucessDB);
+                    closeAlert();
+                }
             },
             {
                 label: 'NÃO',
-                class: 'text-white'
+                class: 'text-white',
+                onclick: function(){
+                    closeAlert();
+                }
             }
         ]
     });
 }
+
 
 //pesquisar produto
 function venda_view() {
