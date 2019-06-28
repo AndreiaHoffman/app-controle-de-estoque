@@ -115,9 +115,6 @@ function update(tx) {
 }
 
 //função de excluir
-function delete_view() {
-    
-}
 function Delete(tx) {
     var produtoId = localStorage.getItem('ProdutoId');
     tx.executeSql('DELETE FROM cadastro WHERE id = "' + produtoId + '"');

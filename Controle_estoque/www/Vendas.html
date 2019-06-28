@@ -21,6 +21,7 @@
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/jquery-ui.combobox.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script><!--adicionado por causa da parte de selecionar-->
 
     <div class="header grey-700">
         <div class="left">
@@ -34,18 +35,22 @@
             <div class="right">
             <button class="icon ion-search text-grey-400"></button>
         </div>
-            <select id="pesqsuisar">
-                <option value=""></option>
+            <select id="pesqsuisar" onchange="optionCheck()">
+                <option value="">Selecionar</option>
+                <option value="produto_venda">teste</option>
             </select>
         </div>
 
     <div class="space"></div>
-    <div class="list">
-        <div class="item">
-            <h3>Anel</h3>
-            <p>Quantidade: </p><input type="number" class="align-right">
-            <div class="right"><button class="icon ion-trash-b red" style="padding: 10px;"></button></div>
-        </div>
+
+    <div id="div_mostrar">
+        <div class="list" id="produto_venda" hidden>
+                <div class="item">
+                    <h3>Anel</h3>
+                    <p>Quantidade: </p><input type="number" class="align-right">
+                    <div class="right"><button class="icon ion-trash-b red" style="padding: 10px;"></button></div>
+                </div>
+            </div>
     </div>
 
     <br>
@@ -65,5 +70,13 @@
         venda_view();
         $('#pesqsuisar').combobox();
     }
+
+    $(document).ready(function(){
+        $('#pesqsuisar').on('change', function(){
+            var selectValor = '#'+$(this).val();
+            $('#div_mostrar').children('div').hide();
+            $('#div_mostrar').children(selectValor).show();
+        })
+    })
 
 </script>
