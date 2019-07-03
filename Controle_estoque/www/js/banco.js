@@ -188,9 +188,13 @@ function AddProduto(id) {
                 "<input type=number' min='1' value='1'>" +
                 "</div>" +
                 "</div>" +
-                "<div class='right'><button class='icon ion-minus-circled blue' style='padding: 10px;'></button></div>" +
+                "<div class='right'><button class='icon ion-minus-circled blue' style='padding: 10px;' id='produto_venda_" + results.rows.item(i).id+" onclick='remove_produto();'></button></div>" +
                 "</div></div>");
 
         });
     });
+}
+
+function remove_produto(produto_id){
+    $("#produto_venda_"+produto_id).remove();
 }
