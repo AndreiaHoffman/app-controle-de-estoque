@@ -1,54 +1,98 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-    <head>
+
+<head>
     <link rel="stylesheet" type="text/css" href="mobileui/style.css">
-        <meta name="format-detection" content="telephone=no">
-        <meta charset="utf-8">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <title>Controle de estoque</title>
-    </head>
-    <body class="padding grey-50 has-header has-sub-header">
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="utf-8">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+    <title>Controle de estoque</title>
+</head>
 
-      <script type="text/javascript" src="cordova.js"></script>
-      <script type="text/javascript" src="mobileui/mobileui.js"></script>
-      <script type="text/javascript" src="js/index.js"></script>
-      <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<body class="padding grey-50 has-header has-sub-header">
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="mobileui/mobileui.js"></script>
+    <script type="text/javascript" src="js/banco.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.combobox.js"></script>
+    <!--adicionado por causa da parte de selecionar-->
 
-      <div class="header blue">
-            <div class="left">
-               <button class="icon ion-ios-arrow-back" onclick="voltar()"></button>
-            </div>
-            <h3 style="text-align: center;">Venda</h3>
-          </div>
+    <div class="header grey-700">
+        <div class="left">
+            <button class="icon ion-ios-arrow-back" onclick="voltar()"></button>
+        </div>
+        <h3 style="text-align: center;">Venda</h3>
+    </div>
 
-          <div class="list">
-            <div class="item icon ion-search">
-                <input type="text" placeholder="Pesquisar">
-            </div>
-          </div>
-          <br>
-          
-          <div class="list">
+    <h4>Buscar produto:</h4>
+
+    <div class="input-group list shadow radius white" style="font-size: 20px">
+        <select id="pesqsuisar">
+            <option value="">Selecionar</option>
+            <option value="produto_venda">teste</option>
+        </select>
+        <span class="right input-group-addon">
+            <button class="icon ion-search text-grey-400" onclick="select()"></button>
+        </span>
+    </div>
+
+    <div class="space"></div>
+
+    <div id="div_mostrar">
+        <div class="list" id="produto_venda" style="display:none">
             <div class="item">
                 <h3>Anel</h3>
-                <p>Quantidade: </p><input type="number" placeholder="00">
+                <p>Quantidade: </p>
                 <div class="right"><button class="icon ion-trash-b red" style="padding: 10px;"></button></div>
             </div>
-          </div>
-        
-          <br>
-          <div class="item">
-            <button class="blue radius full">Baixar</button>
-          </div>
         </div>
-    </body>
+    </div>
+
+    <br>
+    <div class="item">
+        <button class="grey-700 radius full">Baixar</button>
+    </div>
+</body>
+
+<label>Quantidade: </label>
+<div class="border-blue item icon ion-code icon-right"  style="size: 10px;">
+    <input type="number" placeholder=" ">
+</div>
+
+
 </html>
 
 <script>
-    function voltar(){
+    function voltar() {
         window.location.assign("index.html");
     }
+
+    window.onload = function () {
+        venda_view();
+        $('#pesqsuisar').combobox();
+    }
+
+    function select() {
+        var selectValor = "#" + $('#pesqsuisar').val();
+        $('#div_mostrar').children('div').hide();
+        $('#div_mostrar').children(selectValor).show();
+    }
+
+    /*function div_vendas(tx, results){
+        $("#div_mostrar").empty();
+        var len = results.rows.length;
+
+        for (var i = 0; i < len; i++) {
+            $("#div_mostrar").append("<div class='item'>"+
+                "<h3>"+ results.rows.item(i).nome +"</h3>"+
+                "<p>Quantidade: </p><input type='number' class='align-right'>"+
+                <div class="right"><button class="icon ion-trash-b red" style="padding: 10px;"></button></div>
+            </div>")
+        }
+    }*/
 </script>

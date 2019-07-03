@@ -161,3 +161,42 @@ function venda_view() {
         }, null);
     });
 }
+
+
+//mostrar produto para selecionar na venda
+function AbrirID_produto(id) {
+    window.open("results.rows.item(i).id");
+}
+
+function select() {
+    var id = $('#pesqsuisar').val();
+   // $('#div_mostrar').children('div').hide();
+    //$('#div_mostrar').children(selectValor).show();
+    AddProduto(id);
+}
+
+/*function div_vendas(tx, results){
+    $("#div_mostrar").empty();
+    var len = results.rows.length;
+
+    for (var i = 0; i < len; i++) {
+        $("#div_mostrar").append("<div class='list' id='produto_venda_"+ results.rows.item(id) +"' style='display:none'><div class='item'>"+
+            "<h3>"+ results.rows.item(i).nome +"</h3>"+
+            "<p>Quantidade: </p><input type='number' class='align-right'>"+
+            "<div class='right'><button class='icon ion-trash-b red' style='padding: 10px;'></button></div>"+
+        "</div></div>");
+    }
+}*/
+
+function AddProduto(id) {
+    db.transaction(function (transaction) {
+        transaction.executeSql('SELECT id,nome FROM cadastro where id='+id, [], function (tx, results) {
+          
+            $("#div_mostrar").append("<div class='list' id='produto_venda_'"+results.rows.item(id)+" style='display:none'><div class='item'>" +
+                "<h3>" + results.rows.item(1).nome + "</h3>" +
+                "<p>Quantidade: </p><input type='number' class='align-right'>" +
+                "<div class='right'><button class='icon ion-trash-b red' style='padding: 10px;'></button></div>" +
+                "</div></div>");
+        }, null);
+    });
+}

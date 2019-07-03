@@ -115,30 +115,49 @@ function update(tx) {
 }
 
 //função de excluir
-function delete_view(){
-    db.transaction(Delete, errorDB, sucessDB);
-}
-function Delete(tx){
+function Delete(tx) {
     var produtoId = localStorage.getItem('ProdutoId');
-    tx.executeSql('DELETE FROM cadastro WHERE id = "'+produtoId+'"');
+    tx.executeSql('DELETE FROM cadastro WHERE id = "' + produtoId + '"');
 }
 
-function deleteItem(){
+function deleteItem() {
     alert({
-      title:'Alerta',
-      message:'Deseja excluir o produto?',
-      class:'red',
-      buttons:[
-        {
-        
-          label: 'SIM',
-          class:'red-900',
-          function: delete_view()
-        },
-        {
-          label:'NÃO',
-          class:'text-white'
-        }
-      ]
+        title: 'Alerta',
+        message: 'Deseja excluir o produto?',
+        class: 'red',
+        buttons: [
+            {
+                label: 'SIM',
+                class: 'red-900',
+                onclick: function(){
+                    db.transaction(Delete, errorDB, sucessDB);
+                    closeAlert();
+                }
+            },
+            {
+                label: 'NÃO',
+                class: 'text-white',
+                onclick: function(){
+                    closeAlert();
+                }
+            }
+        ]
     });
-  }
+}
+
+
+//pesquisar produto
+function venda_view() {
+    db.transaction(function (transaction) {
+        transaction.executeSql('SELECT id,nome FROM cadastro', [], function (tx, results) {
+            var len = results.rows.length, i;
+            $("#rowCount").append(len);
+            for (i = 0; i < len; i++) {
+                $("#pesqsuisar").append($('<option>', {
+                    value: results.rows.item(i).id,
+                    text: results.rows.item(i).nome
+                }));
+            }
+        }, null);
+    });
+}
