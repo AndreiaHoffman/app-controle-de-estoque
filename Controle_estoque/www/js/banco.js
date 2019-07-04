@@ -209,11 +209,15 @@ function baixa_estoque(tx) {
         produtos.push(data);
     }
 
-    for (var i = 0; i < produtos.length; i++) {
-        db.transaction(function (transaction) {
-            transaction.executeSql('UPDATE cadastro SET quantidade = quantidade - "' + produtos[i].quantidade + '" WHERE id = "' + produtos[i].id + '"', [], function (tx, results){
+    var sql = '';
+    db.transaction(function (transaction) {
+        for (var i = 0; i < produtos.length; i++) {
+            transaction.executeSql('UPDATE cadastro SET quantidade = quantidade - ' + produtos[i].quantidade + ' WHERE id = ' + produtos[i].id);
+        }
+    });
 
-            });
-        });
-    }
+    alert('teste');
 }
+
+
+
