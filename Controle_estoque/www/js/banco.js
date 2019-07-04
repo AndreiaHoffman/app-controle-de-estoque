@@ -173,28 +173,47 @@ function select() {
     AddProduto(id);
 }
 
-
 function AddProduto(id) {
     db.transaction(function (transaction) {
         transaction.executeSql('SELECT id,nome FROM cadastro where id=' + id, [], function (tx, results) {
-
-            var len = results.rows.length;
 
             $("#div_mostrar").append("<div class='list' id='produto_venda_" + results.rows.item(i).id + "'>" +
                 "<div class='item'>" +
                 "<h3>" + results.rows.item(0).nome + "</h3>" +
                 "<div class='list' id='div_quant'>" +
                 "<div class='item icon ion-calculator icon-right'>" +
-                "<input type=number' min='1' value='1'>" +
+                "<input type=number' min='1' value='1' id='quant_produto'>" +
                 "</div>" +
                 "</div>" +
-                "<div class='right'><button class='icon ion-minus-circled blue' style='padding: 10px;' onclick='remove_produto("+results.rows.item(0).id+");'></button></div>" +
+                "<div class='right'><button class='icon ion-minus-circled blue' style='padding: 10px;' onclick='remove_produto(" + results.rows.item(0).id + ");'></button></div>" +
                 "</div></div>");
 
         });
     });
 }
 
-function remove_produto(produto_id){
-    $("#produto_venda_"+produto_id).remove();
+function remove_produto(produto_id) {
+    $("#produto_venda_" + produto_id).remove();
+}
+
+//alteração do estoque para vendas
+function baixa_estoque(tx) {
+    var produtos = new Array();
+    var lista = $('#div_mostrar').children().length;
+    for (var i = 0; i < lista; i++) {
+        var data = new Object();
+        var filho = $("#div_mostrar").children().eq(i);
+        var id = filho[0].id;
+        data.id = id.split("_")[2];
+        data.quantidade = filho[0].children[0].children[1].children[0].children[0].value;
+        produtos.push(data);
+    }
+
+    for (var i = 0; i < produtos.length; i++) {
+        db.transaction(function (transaction) {
+            transaction.executeSql('UPDATE cadastro SET quantidade = quantidade - "' + produtos[i].quantidade + '" WHERE id = "' + produtos[i].id + '"', [], function (tx, results){
+
+            });
+        });
+    }
 }
