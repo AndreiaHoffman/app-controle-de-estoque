@@ -13,19 +13,23 @@
   <title>Controle de estoque</title>
 </head>
 
-<body class="padding grey-50 has-header has-sub-header">
+<body class="padding deep-purple-50 has-header has-sub-header">
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="mobileui/mobileui.js"></script>
   <script type="text/javascript" src="js/banco.js"></script>
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 
 
-  <div class="header grey-700">
+  <div class="header deep-purple-800">
     <div class="left">
       <button class="icon ion-ios-arrow-back" onclick="voltar()"></button>
     </div>
+    <div class="right">
+      <button class="icon ion-android-more-vertical"></button>
+    </div>
     <h3 style="text-align: center;">Produto</h3>
   </div>
+
   <div class="header pinl sub shadow tab">
     <button class="ion-plus-round" onclick="openTab('novo_produto')">Novo</button>
   </div>
@@ -49,7 +53,7 @@
     </div>
     <div class="space"></div>
     <div class="item">
-        <button class="grey-700 radius full" onclick="cadastro_insert(), openToast('Cadastro feito com sucesso!')"><i class="ion-android-checkbox-outline "></i>Salvar</button>
+        <button class="deep-purple-800 radius full float-bottom-center" id="inserir" onclick="cadastro_insert(), openToast('Cadastro feito com sucesso!')"><i class="ion-android-checkbox-outline "></i>Salvar</button>
       </div>
   </div>
 

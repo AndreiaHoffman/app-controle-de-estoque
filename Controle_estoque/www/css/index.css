@@ -1,15 +1,11 @@
-#produto_icon {
-    height: 150px;
-    margin-top: 100px;
-    margin-left: 100px;
+/*Index.html*/
+#tela_menu{
+    padding: 50px;
 }
-#estoque_icon{
-    height: 150px;
-    
-}
-#vendas_icon{
-    height: 150px;
-    margin-left: 40px;
+#titulo{
+    font-family: 'Lobster';
+    font-size:40px;
+    margin-top: -43px;
 }
 #tela_parede{
     background-image:url('../img/shopping.png');
@@ -19,4 +15,13 @@
 }
 #button_produto{
     padding-block: 20px;
+}
+.buttons-group.full button {
+    flex: 1;
+    padding: 20px;
+    font-size: 20px;
+    margin-top: 500px;
+}
+#inserir{
+    font-size: 20px;
 }
