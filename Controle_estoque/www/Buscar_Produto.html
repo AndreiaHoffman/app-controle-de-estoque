@@ -13,11 +13,12 @@
   <title>Controle de estoque</title>
 </head>
 
-<body class="padding deep-purple-50 has-header has-sub-header">
+<body class="padding has-header has-sub-header">
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="mobileui/mobileui.js"></script>
   <script type="text/javascript" src="js/banco.js"></script>
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery.mask.min.js"></script>
 
 
   <div class="header deep-purple-800">
@@ -25,38 +26,58 @@
       <button class="icon ion-ios-arrow-back" onclick="voltar()"></button>
     </div>
     <div class="right">
-      <button class="icon ion-android-more-vertical"></button>
+      <button class="icon ion-android-more-vertical" onclick="openPopover('popover')"></button>
     </div>
     <h3 style="text-align: center;">Produto</h3>
   </div>
 
-  <div class="header pinl sub shadow tab">
-    <button class="ion-plus-round" onclick="openTab('novo_produto')">Novo</button>
+  <!--TODO: encaminhar para tela de estoque-->
+  <div class="popover" id="popover">
+    <div class="list">
+      <div class="item" id="teste"><h1>Estoque</h1></div>
+    </div>
   </div>
 
-  <div class="tab-content active" id="novo_produto">
+  <div class="header pinl sub shadow tab">
+    <button class=" deep-purple-300 ion-plus-round" onclick="openTab('novo_produto')">Novo</button>
+  </div>
+
+  <div class="tab-content active" id="novo_produto" name="form">
     <div class="space"></div>
     <div class="list">
       <input type="hidden" placeholder="Id">
       <div class="item">
-        <input type="text" placeholder="Nome" id="nome_produto">
+        <label class="text-deep-purple-800">Produto</label>
+        <input type="text" id="nome_produto">
       </div>
       <div class="item">
-        <input type="text" placeholder="Descrição" id="desc_produto">
+        <label class="text-deep-purple-800">Descrição</label>
+        <input type="text" id="desc_produto">
       </div>
       <div class="item">
-        <input type="text" placeholder="Quantidade" id="quant_produto">
+        <label class="text-deep-purple-800">Quantidade</label>
+        <input type="text" id="quant_produto">
       </div>
       <div class="item">
-        <input type="text" placeholder="Preço R$" id="preco_produto">
+        <label class="text-deep-purple-800">Preço</label>
+        <input type="text" placeholder="R$" id="preco_produto" class="dinheiro">
       </div>
+    </div>
+   
     </div>
     <div class="space"></div>
     <div class="item">
-        <button class="deep-purple-800 radius full float-bottom-center" id="inserir" onclick="cadastro_insert(), openToast('Cadastro feito com sucesso!')"><i class="ion-android-checkbox-outline "></i>Salvar</button>
-      </div>
+      <button class="deep-purple-800 radius full float-bottom-center" id="inserir"
+        onclick="cadastro_insert();"><i
+          class="ion-android-checkbox-outline "></i>Salvar</button>
+    </div>
   </div>
 
 </body>
 
 </html>
+
+<script type="text/javascript">
+  $('.dinheiro').mask('#.##0,00', { reverse: true });
+
+</script>

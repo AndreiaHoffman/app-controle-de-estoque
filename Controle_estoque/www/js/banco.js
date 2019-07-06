@@ -15,15 +15,32 @@ function sucessDB() { }
 
 //criação de tabela
 function createDB(tx) {
-    tx.executeSql('CREATE TABLE IF NOT EXISTS cadastro (id INTEGER PRIMARY KEY, nome VARCHAR(500), descricao VARCHAR(500), quantidade NUM(3), preco NUM(5))');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS cadastro (id INTEGER PRIMARY KEY, nome VARCHAR(50), descricao VARCHAR(50), quantidade NUM(3), preco NUM(6))');
 }
+
+//mensagem de cadastro efetuado com sucesso
+function openToastTop() {
+    openToast({
+      message: 'Cadastro feito com sucesso!',
+      class: 'full text-big text-strong black-opacity-70 text-white',
+      position: 'top'
+    })
+  }
 
 // comando de inserir dados no banco
 function cadastro_insert() {
-    db.transaction(cadastro_insert_db, errorDB, sucessDB);
+    var nome = $("#nome_produto").val();
+
+    if(nome == ""){
+        alert();
+    }else{
+        db.transaction(cadastro_insert_db, errorDB, sucessDB);
+        openToastTop();
+    }
 }
 
 function cadastro_insert_db(tx) {
+
     var nome = $("#nome_produto").val();
     var descricao = $("#desc_produto").val();
     var quantidade = $("#quant_produto").val();
@@ -50,12 +67,11 @@ function cadastro_view_data(tx, results) {
     var len = results.rows.length;
 
     for (var i = 0; i < len; i++) {
-        $("#produto_lista").append("<div class='item white mark border-blue-grey-200 margin-button shadow'>" +
+        $("#produto_lista").append("<div class='item white mark border-deep-purple-100 margin-button shadow'>" +
             "<tr class='produto_item_lista' id='produto_item_" + results.rows.item(i).id + "'>" +
             "<td class='info'><h3>" + results.rows.item(i).nome + "</h3>" +
             "<p>Quantidade: <label class='text-grey'>" + results.rows.item(i).quantidade + "</label></p></td>" +
-            "<div class='right' style='margin-top:-45px;'><button class='right grey-700 icon-text cyan' onclick='cadastro_update_dados(" + results.rows.item(i).id + ")' > " +
-            "<i class='ion-navicon-round'></i> Detalhes" +
+            "<div class='right' style='margin-top:-55px;'><button class='icon ion-navicon-round' style='font-size:35px; color:indigo;' onclick='cadastro_update_dados(" + results.rows.item(i).id + ")' > " +
             "</button></div>" +
             "</tr></div><div class='space'></div>");
     }

@@ -11,21 +11,21 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <title>Controle de estoque</title>
     </head>
-    <body class="brown-100" id="tela_parede">
+    <body id="tela_parede">
 
       <script type="text/javascript" src="cordova.js"></script>
       <script type="text/javascript" src="mobileui/mobileui.js"></script>
       <script type="text/javascript" src="js/index.js"></script>
       <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 
-      <div class="header black-opacity-70" id="tela_menu">
+      <div class="header black-opacity-50" id="tela_menu">
         <h3 class="align-center text-grey-50" id="titulo">Controle de Estoque<i class="fas fa-user"></i></h3>
       </div>
 
-      <div class="buttons-group full float-bottom">
-        <button class="pink-400 border-white radius-left" onclick="produto_button()"><i class="icon ion-plus"></i> Novo</button>
-        <button class="pink-400 border-white" onclick="estoque_button()"><i class=" icon ion-document-text"></i>&nbsp; Estoque</button>
-        <button class="pink-400 border-white radius-rigth" onclick="vendas_button()"><i class="icon ion-ios-heart"></i>&nbsp;&nbsp; Vendas</button>
+      <div class="buttons-group full">
+        <button class="deep-purple-800 border-white" onclick="produto_button()"><i class=" ion-plus-round"></i> Novo</button>
+        <button class="deep-purple-800 border-white" onclick="estoque_button()" style="font-size: 18px;"><i class="  ion-document-text"></i> Estoque</button>
+        <button class="deep-purple-800 border-white" onclick="vendas_button()"><i class=" ion-ios-heart"></i> Vendas</button>
       </div>
 
     </body>

@@ -20,37 +20,48 @@
     <script type="text/javascript" src="js/banco.js"></script>
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 
-    <div class="header grey-700">
-        <div class="left">
-            <button class="icon ion-ios-arrow-back" onclick="voltarEstoque()"></button>
-        </div>
-        <h3 style="text-align: center;">Detalhes</h3>
-    </div>
+    <div class="header deep-purple-800">
+            <div class="left">
+              <button class="icon ion-ios-arrow-back" onclick="voltarEstoque()"></button>
+            </div>
+            <div class="right">
+              <button class="icon ion-android-more-vertical" onclick="openPopover('popover')"></button>
+            </div>
+            <h3 style="text-align: center;">Detalhes</h3>
+          </div>
+        
+          <div class="popover" id="popover">
+            <div class="list">
+              <div class="item" id="teste">
+                <h5></h5>
+              </div>
+            </div>
+          </div>
     <input type="hidden" id="produto_id_update">
     <input type="hidden" id="ProdutoId">
     <div class="list">
         <div class="item">
-            <label class="text-grey-500">Produto</label>
+            <label class="text-deep-purple-800">Produto</label>
             <input type="text" id="produto_nome_update">
         </div>
         <div class="item">
-            <label class="text-grey-500">Descrição</label>
+            <label class="text-deep-purple-800">Descrição</label>
             <input type="text" id="produto_descricao_update">
         </div>
         <div class="item">
-            <label class="text-grey-500">Quantidade</label>
+            <label class="text-deep-purple-800">Quantidade</label>
             <input type="text" id="produto_quant_update">
         </div>
         <div class="item">
-            <label class="text-grey-500">Preço</label>
+            <label class="text-deep-purple-800">Preço</label>
             <input type="text-grey-500" id="produto_preco_update">
         </div>
     </div>
-    <div class="buttons-group full" style="margin-top: 180px;">
-        <button class="blue-600 border-blue-600 radius-left radius-right" onclick="alert('Alterado com sucesso!', 'Produto'), update_view()">
-            <i class="icon ion-loop"></i>Alterar
+    <div class="buttons-group full">
+        <button class="blue-600 radius float-bottom-left" id="alterar" onclick="alert('Alterado com sucesso!', 'Produto'), update_view()">
+            <i class="ion-loop"> Alterar</i>
         </button>
-        <button class="red-600 border-red-600 radius-right radius-left" onclick="deleteItem()"><i class="icon ion-close-round"></i>Excluir</button>
+        <button class="red-600 radius float-bottom-right" id="excluir" onclick="deleteItem()"><i class="ion-close-round"> Excluir</i></button>
     </div>
 
 </body>
@@ -66,5 +77,13 @@
        detalhes_view();
     }
 
-    
 </script>
+
+<style>
+    #alterar, #excluir{
+        padding-left: 60px; 
+        padding-right: 60px;
+        margin-left: -20px;
+    margin-right: -10px;
+    }
+</style>
