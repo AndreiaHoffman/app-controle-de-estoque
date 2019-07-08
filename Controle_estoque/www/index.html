@@ -1,45 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    <link rel="stylesheet" type="text/css" href="mobileui/fonts.css">
-    <link rel="stylesheet" type="text/css" href="mobileui/style.css">
-        <meta name="format-detection" content="telephone=no">
-        <meta charset="utf-8">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <title>Controle de estoque</title>
-    </head>
-    <body id="tela_parede">
 
-      <script type="text/javascript" src="cordova.js"></script>
-      <script type="text/javascript" src="mobileui/mobileui.js"></script>
-      <script type="text/javascript" src="js/index.js"></script>
-      <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<head>
+  <link rel="stylesheet" type="text/css" href="mobileui/fonts.css">
+  <link rel="stylesheet" type="text/css" href="mobileui/style.css">
+  <meta name="format-detection" content="telephone=no">
+  <meta charset="utf-8">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport"
+    content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <title>Controle de estoque</title>
+</head>
 
-      <div class="header black-opacity-50" id="tela_menu">
-        <h3 class="align-center text-grey-50" id="titulo">Controle de Estoque<i class="fas fa-user"></i></h3>
-      </div>
+<body id="tela_parede">
 
-      <div class="buttons-group full">
-        <button class="deep-purple-800 border-white" onclick="produto_button()"><i class=" ion-plus-round"></i> Novo</button>
-        <button class="deep-purple-800 border-white" onclick="estoque_button()" style="font-size: 18px;"><i class="  ion-document-text"></i> Estoque</button>
-        <button class="deep-purple-800 border-white" onclick="vendas_button()"><i class=" ion-ios-heart"></i> Vendas</button>
-      </div>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="mobileui/mobileui.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 
-    </body>
+  <div class="header black-opacity-50" id="tela_menu">
+    <h3 class="align-center text-grey-50" id="titulo">Controle de Estoque<i class="fas fa-user"></i></h3>
+  </div>
+
+  <div class="buttons">
+    <div>
+      <button class="deep-purple-800 circle icon ion-plus" onclick="produto_button()">
+      </button>
+      <p>Novo</p>
+    </div>
+    <div>
+      <button class="deep-purple-800 icon ion-document-text shadow float-bottom-left radius" onclick="estoque_button()">
+        <br>
+        <p>Estoque</p>
+      </button>
+    </div>
+    <div>
+      <button class="deep-purple-800 icon ion-ios-heart shadow float-bottom-right radius" onclick="vendas_button()">
+        <br>
+        <p>Vendas</p>
+      </button>
+    </div>
+  </div>
+
+</body>
+
 </html>
 
 <script>
-  function estoque_button(){
+  function estoque_button() {
     window.location.assign("Estoque.html");
   }
-  function vendas_button(){
+  function vendas_button() {
     window.location.assign("Vendas.html");
   }
-  function produto_button(){
+  function produto_button() {
     window.location.assign("Buscar_produto.html");
   }
-  
+
 </script>

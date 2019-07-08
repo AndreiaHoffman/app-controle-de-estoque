@@ -31,8 +31,8 @@ function openToastTop() {
 function cadastro_insert() {
     var nome = $("#nome_produto").val();
 
-    if(nome == ""){
-        alert();
+    if(nome == "" || nome.trim().length < 0){
+        alert("O nome do produto é obrigatório!");
     }else{
         db.transaction(cadastro_insert_db, errorDB, sucessDB);
         openToastTop();
@@ -59,7 +59,7 @@ function cadastro_view() {
 }
 
 function cadastro_view_db(tx) {
-    tx.executeSql('SELECT * FROM cadastro', [], cadastro_view_data, errorDB);
+    tx.executeSql('SELECT * FROM cadastro ORDER BY nome', [], cadastro_view_data, errorDB);
 }
 
 function cadastro_view_data(tx, results) {
@@ -147,7 +147,7 @@ function deleteItem() {
                 class: 'red-900',
                 onclick: function () {
                     db.transaction(Delete, errorDB, sucessDB);
-                    closeAlert();
+                    window.location.assign("Estoque.html");
                 }
             },
             {
