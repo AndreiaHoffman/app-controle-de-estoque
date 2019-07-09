@@ -195,7 +195,7 @@ function AddProduto(id) {
 
             $("#div_mostrar").append("<div class='list' id='produto_venda_" + results.rows.item(i).id + "'>" +
                 "<div class='item'>" +
-                "<h3>" + results.rows.item(0).nome + "</h3>" +
+                "<h3 class='text-deep-purple-800'>" + results.rows.item(0).nome + "</h3>" +
                 "<div class='list' id='div_quant'>" +
                 "<div class='item icon ion-calculator icon-right'>" +
                 "<input type=number' min='1' value='1' id='quant_produto'>" +
@@ -232,8 +232,32 @@ function baixa_estoque(tx) {
         }
     });
 
-    alert('teste');
 }
 
+function venda() {
+    alert({
+        title: 'Venda',
+        message: 'Deseja confirmar essa venda?',
+        class: 'deep-purple',
+        buttons: [
+            {
+                label: 'SIM',
+                class: 'deep-purple-900',
+                onclick: function(){
+                    baixa_estoque();
+                    voltar();
+                }
+                
+            },
+            {
+                label: 'NÃO',
+                class: 'text-white',
+                onclick: function () {
+                    closeAlert();
+                }
+            }
+        ]
+    });
+}
 
 

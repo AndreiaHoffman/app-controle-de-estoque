@@ -26,24 +26,21 @@
   </div>
 
   <div class="buttons">
-    <div>
-      <button class="deep-purple-800 circle icon ion-plus" onclick="produto_button()">
-      </button>
-      <p>Novo</p>
+      <div>
+        <button class="text-deep-purple-800 ion-plus-circled" onclick="produto_button()">
+        </button>
+      </div>
+      <div  class=" float-bottom-left">
+        <button class="deep-purple-800 icon ion-document-text radius" onclick="estoque_button()">
+        </button>
+          <p style="text-align: center">Estoque</p> 
+      </div>
+      <div class="shadow float-bottom-right">
+        <button class="deep-purple-800 icon ion-clipboard radius" onclick="vendas_button()">
+        </button>
+        <p style="text-align: center">Vendas</p>
+      </div>
     </div>
-    <div>
-      <button class="deep-purple-800 icon ion-document-text shadow float-bottom-left radius" onclick="estoque_button()">
-        <br>
-        <p>Estoque</p>
-      </button>
-    </div>
-    <div>
-      <button class="deep-purple-800 icon ion-ios-heart shadow float-bottom-right radius" onclick="vendas_button()">
-        <br>
-        <p>Vendas</p>
-      </button>
-    </div>
-  </div>
 
 </body>
 
@@ -61,3 +58,13 @@
   }
 
 </script>
+
+<style>
+  .buttons button{
+    font-size: 70px;
+  }
+  .buttons p{
+    font-size: 16px;
+    color: grey;
+  }
+</style>
