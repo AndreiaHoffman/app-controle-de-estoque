@@ -6,14 +6,15 @@
     <meta name="format-detection" content="telephone=no">
     <meta charset="utf-8">
     <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
     <title>Controle de estoque</title>
 </head>
 
-<body class="padding grey-50 has-header has-sub-header">
+<body>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="mobileui/mobileui.js"></script>
     <script type="text/javascript" src="js/banco.js"></script>
@@ -22,50 +23,50 @@
     <script type="text/javascript" src="js/jquery-ui.combobox.js"></script>
     <!--adicionado por causa da parte de selecionar-->
 
-    <div class="header grey-700">
+    <div class="header deep-purple-800">
         <div class="left">
             <button class="icon ion-ios-arrow-back" onclick="voltar()"></button>
         </div>
-        <h3 style="text-align: center;">Venda</h3>
+        <div class="right">
+            <button class="icon ion-android-more-vertical" onclick="openPopover('popover')"></button>
+        </div>
+        <h3 style="text-align: center;">Vendas</h3>
     </div>
 
-    <h4>Buscar produto:</h4>
+    <!--TODO: encaminhar para tela de estoque-->
+  <div class="popover" id="popover">
+    <div class="list">
+      <div class="item" id="teste"><h1>Estoque</h1></div>
+    </div>
+  </div>
 
-    <div class="input-group list shadow radius white" style="font-size: 20px">
+  <div class="space"></div>
+  <div class="space"></div>
+  <div class="space"></div>
+
+    <h4 class="text-grey-500">Buscar produto:</h4>
+    <div class="item icon ion-search radius-right" style="font-size: 28px">
         <select id="pesqsuisar">
-            <option value="">Selecionar</option>
-            <option value="produto_venda">teste</option>
+            <option value=""></option>
         </select>
-        <span class="right input-group-addon">
-            <button class="icon ion-search text-grey-400" onclick="select()"></button>
-        </span>
+         <button id="pesquisa" class="ion-archive deep-purple-300" onclick="select()"></button>
     </div>
+  
 
     <div class="space"></div>
 
-    <div id="div_mostrar">
-        <div class="list" id="produto_venda" style="display:none">
-            <div class="item">
-                <h3>Anel</h3>
-                <p>Quantidade: </p>
-                <div class="right"><button class="icon ion-trash-b red" style="padding: 10px;"></button></div>
-            </div>
-        </div>
-    </div>
+    <div id="div_mostrar"></div>
+    <!--adição da div do select-->
 
     <br>
     <div class="item">
-        <button class="grey-700 radius full">Baixar</button>
+        <button class="deep-purple-800 radius shadow full float-bottom-center" onclick="venda()"><i class="ion-bag"></i>Baixar</button>
     </div>
 </body>
 
-<label>Quantidade: </label>
-<div class="border-blue item icon ion-code icon-right"  style="size: 10px;">
-    <input type="number" placeholder=" ">
-</div>
-
-
 </html>
+
+
 
 <script>
     function voltar() {
@@ -77,22 +78,16 @@
         $('#pesqsuisar').combobox();
     }
 
-    function select() {
-        var selectValor = "#" + $('#pesqsuisar').val();
-        $('#div_mostrar').children('div').hide();
-        $('#div_mostrar').children(selectValor).show();
-    }
-
-    /*function div_vendas(tx, results){
-        $("#div_mostrar").empty();
-        var len = results.rows.length;
-
-        for (var i = 0; i < len; i++) {
-            $("#div_mostrar").append("<div class='item'>"+
-                "<h3>"+ results.rows.item(i).nome +"</h3>"+
-                "<p>Quantidade: </p><input type='number' class='align-right'>"+
-                <div class="right"><button class="icon ion-trash-b red" style="padding: 10px;"></button></div>
-            </div>")
-        }
-    }*/
 </script>
+
+<style>
+    #div_quant {
+        width: 80px;
+        font-size: 50px;
+        padding: -10px;
+    }
+    #pesquisa{
+        font-size: 25px;
+        padding: -40px;
+    }
+</style>

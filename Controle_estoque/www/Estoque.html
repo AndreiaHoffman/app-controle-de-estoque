@@ -19,10 +19,6 @@
   <script type="text/javascript" src="mobileui/mobileui.js"></script>
   <script type="text/javascript" src="js/banco.js"></script>
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <!--tirar se não funcionar o pdf-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"
-    integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs"
-    crossorigin="anonymous"></script>
 
   <div class="header deep-purple-800">
     <div class="left">
@@ -37,7 +33,7 @@
   <div class="popover" id="popover">
     <div class="list">
       <div class="item" id="teste">
-        <h5><button onclick="cont()">Gerar PDF</button></h5>
+        <h5><button>Gerar PDF</button></h5>
       </div>
     </div>
   </div>
@@ -51,7 +47,7 @@
       </tbody>
     </table>
   </div>
-
+  <button class="deep-purple-800 radius shadow full float-bottom-center"><a href="pdf.html">PDF</a></button>
 </body>
 
 </html>
@@ -61,10 +57,6 @@
     cadastro_view();
   }
 
-  function cont() {
-    var doc = new jsPDF()
-    doc.text("teste")
-    doc.save('a4.pdf')
-  }
+
 
 </script>
