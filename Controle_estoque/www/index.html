@@ -2,7 +2,6 @@
 <html>
 
 <head>
-  <link rel="stylesheet" type="text/css" href="mobileui/fonts.css">
   <link rel="stylesheet" type="text/css" href="mobileui/style.css">
   <meta name="format-detection" content="telephone=no">
   <meta charset="utf-8">
@@ -10,61 +9,131 @@
   <meta name="viewport"
     content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
   <link rel="stylesheet" type="text/css" href="css/index.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <title>Controle de estoque</title>
+  <title>Apache Cordova</title>
 </head>
 
-<body id="tela_parede">
-
+<body class="purple-800">
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="mobileui/mobileui.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/banco.js"></script>
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery.mask.min.js"></script>
 
-  <div class="header black-opacity-50" id="tela_menu">
-    <h3 class="align-center text-grey-50" id="titulo">Controle de Estoque<i class="fas fa-user"></i></h3>
+  <div class="swiper-container swiper-container-fullscreen">
+    <div class="swiper-wrapper">
+
+      <!--slide 1-->
+      <div class="swiper-slide">
+        <div class="header black-opacity-50" id="tela_menu">
+          <div class="left">
+            <button class="icon ion-plus-round" onclick="openMenu('myFirstMenu')"></button>
+          </div>
+          <div class="right">
+            <button class="icon ion-android-more-vertical" onclick="openPopover('popover1')"></button>
+          </div>
+          <h3 class="align-center text-grey-50" id="titulo">Controle de Estoque<i class="fas fa-user"></i></h3>
+        </div>
+        <div class="vertical-align-center">
+          <i class="icon ion-ios-cart-outline" id="icone"></i>
+          <button class="border-white text-white radius margin-top" id="botao_vender" onclick="vendas_button()">
+            Vender
+          </button>
+        </div>
+      </div>
+
+      <!--slide 2-->
+      <div class="swiper-slide white" id="teste">
+          <div>
+            <h2 class="deep-purple-800" id="estoque">Estoque</h2>
+            <div class="content">
+            <table class="table">
+              <thead>
+                <tr></tr>
+              </thead>
+              <tbody id="produto_lista">
+                <!--Mostrar estoque-->
+              </tbody>
+            </table>
+            <div class="space"></div>
+            <div class="space"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Add Pagination -->
+    <div class="swiper-pagination swiper-pagination-white"></div>
   </div>
-
-  <div class="buttons">
-      <div>
-        <button class="text-deep-purple-800 ion-plus-circled" onclick="produto_button()">
-        </button>
-      </div>
-      <div  class=" float-bottom-left">
-        <button class="deep-purple-800 icon ion-document-text radius" onclick="estoque_button()">
-        </button>
-          <p style="text-align: center">Estoque</p> 
-      </div>
-      <div class="shadow float-bottom-right">
-        <button class="deep-purple-800 icon ion-clipboard radius" onclick="vendas_button()">
-        </button>
-        <p style="text-align: center">Vendas</p>
-      </div>
-    </div>
 
 </body>
 
+<!--Popover de vendas-->
+<div class="popover" id="popover1">
+  <div class="list">
+    <div class="item">
+      <button onclick="vendas_button()">Vender</button>
+    </div>
+    <div class="item">
+      <button onclick="GerarPdf()">Gerar PDF</button>
+    </div>
+  </div>
+</div>
+
+<!--Novo produto-->
+<div class="menu deep-purple-50" id="myFirstMenu">
+  <button class="deep-purple-800 full" onclick="closeMenu('myFirstMenu')"><i class="ion-plus-round"></i>Novo</button>
+  <div class="tab-content active" id="novo_produto" name="form">
+    <div class="space"></div>
+    <div class="list">
+      <input type="hidden" placeholder="Id">
+      <div class="item">
+        <label class="text-deep-purple-800">Produto*</label>
+        <input type="text" id="nome_produto">
+      </div>
+      <div class="item">
+        <label class="text-deep-purple-800">Descrição</label>
+        <input type="text" id="desc_produto">
+      </div>
+      <div class="item">
+        <label class="text-deep-purple-800">Quantidade</label>
+        <input type="text" value="00" id="quant_produto">
+      </div>
+      <div class="item">
+        <label class="text-deep-purple-800">Preço</label>
+        <input type="text" placeholder="R$" id="preco_produto" class="dinheiro">
+      </div>
+    </div>
+
+  </div>
+  <div class="space"></div>
+  <div class="item">
+    <button class="deep-purple-800 radius full float-bottom-center" id="inserir" onclick="cadastro_insert();"><i
+        class="ion-android-checkbox-outline "></i>Salvar</button>
+  </div>
+</div>
+</div>
+</div>
+
 </html>
 
-<script>
-  function estoque_button() {
-    window.location.assign("Estoque.html");
+<script type="text/javascript">
+
+  window.onload = function () {
+    cadastro_view();
   }
+
   function vendas_button() {
     window.location.assign("Vendas.html");
   }
   function produto_button() {
-    window.location.assign("Buscar_produto.html");
+    window.location.assign("Buscar_Produto.html");
   }
+
+  $('.dinheiro').mask('#.##0,00', { reverse: true });
+
+  new Swiper('.swiper-container', {
+    pagination: '.swiper-pagination',
+    paginationClickable: true
+  });
 
 </script>
-
-<style>
-  .buttons button{
-    font-size: 70px;
-  }
-  .buttons p{
-    font-size: 16px;
-    color: grey;
-  }
-</style>

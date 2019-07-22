@@ -1,67 +1,75 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
-  <link rel="stylesheet" type="text/css" href="mobileui/style.css">
-  <meta name="format-detection" content="telephone=no">
-  <meta charset="utf-8">
-  <meta name="msapplication-tap-highlight" content="no">
-  <meta name="viewport"
-    content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-  <link rel="stylesheet" type="text/css" href="css/index.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <title>Controle de estoque</title>
+    <link rel="stylesheet" type="text/css" href="mobileui/style.css">
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="utf-8">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <title>Controle de estoque</title>
 </head>
 
 <body class="padding has-header has-sub-header">
 
-  <script type="text/javascript" src="cordova.js"></script>
-  <script type="text/javascript" src="mobileui/mobileui.js"></script>
-  <script type="text/javascript" src="js/banco.js"></script>
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <!--tirar se não funcionar o pdf-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"
-    integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs"
-    crossorigin="anonymous"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="mobileui/mobileui.js"></script>
+    <script type="text/javascript" src="js/banco.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 
-  <div class="header deep-purple-800">
-    <div class="left">
-      <button class="icon ion-ios-arrow-back" onclick="voltar()"></button>
+    <div class="header deep-purple-800">
+        <div class="left">
+            <button class="icon ion-ios-arrow-back" onclick="voltar()"></button>
+        </div>
+        <div class="right">
+            <button class="icon ion-android-more-vertical" onclick="openPopover('popover')"></button>
+        </div>
+        <h3 style="text-align: center;">Estoque</h3>
     </div>
-    <div class="right">
-      <button class="icon ion-android-more-vertical" onclick="openPopover('popover')"></button>
+
+    <div class="popover" id="popover">
+        <div class="list">
+            <div class="item" id="teste">
+                <button id="gerarPDF" onclick="GerarPdf()">Gerar PDF</button>
+            </div>
+        </div>
     </div>
-    <h3 style="text-align: center;">Estoque</h3>
-  </div>
 
-  <div class="popover" id="popover">
-    <div class="list">
-      <div class="item" id="teste">
-        <h5><button>Gerar PDF</button></h5>
-      </div>
+    <div class="popover" id="popover">
+        <div class="list">
+            <div class="item"><button id="gerarPDF" onclick="GerarPdf()">Gerar PDF</button></div>
+        </div>
     </div>
-  </div>
 
-  <div>
-    <table class="table">
-      <thead>
-        <tr></tr>
-      </thead>
-      <tbody id="produto_lista">
-      </tbody>
-    </table>
-  </div>
 
-  <button class="deep-purple-800 radius shadow full float-bottom-center"><i class="ion-bag"></i><a href="pdf.html">Baixar</a></button>
+    <div>
+        <table class="table">
+            <thead>
+                <tr></tr>
+            </thead>
+            <tbody id="produto_lista"></tbody>
+        </table>
+    </div>
+    <button class="deep-purple-800 radius shadow full float-bottom-center" onclick="GerarPdf()">PDF</button>
 </body>
 
 </html>
 
 <script>
-  window.onload = function () {
-    cadastro_view();
-  }
+    window.onload = function () {
+        cadastro_view();
+    }
 
+    function GerarPdf() {
+        var opts = {
+            type: "share",         //Open a context menu and ask the user what to do next (print, mail, etc..).
+            fileName: 'v8-tutorial.pdf' //it will use this filename as a place-holder
+        }
 
-
+        pdf.fromURL('https://cesarvr.io/post/2015-11-20-javascript-v8/', opts)
+            .then((status) => console.log('success->', status))
+            .catch((error) => console.log(error));
+    }
 </script>

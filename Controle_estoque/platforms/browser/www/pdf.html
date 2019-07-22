@@ -4,18 +4,7 @@
 <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 
 <script>
- 
- function cont(){
-   var conteudo = document.getElementById('print').innerHTML;
-   tela_impressao = window.open('about:blank');
-   tela_impressao.document.write(conteudo);
-   tela_impressao.window.print();
-   tela_impressao.window.close();
-}
+    document.addEventListener('deviceready', function () {
+        cordova.plugins.printer.print("Hello\nWorld!");
+}, false);
 </script>
-
-<div id="print" class="conteudo">
-<p>teste<p>
-</div>
-
-<input type="button" onclick="cont();" value="Imprimir Div separadamente">

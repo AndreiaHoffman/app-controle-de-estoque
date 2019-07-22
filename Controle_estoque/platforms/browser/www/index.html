@@ -1,70 +1,62 @@
 <!DOCTYPE html>
 <html>
+    <head>
+    <link rel="stylesheet" type="text/css" href="mobileui/style.css">
+        <meta name="format-detection" content="telephone=no">
+        <meta charset="utf-8">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Apache Cordova</title>
+    </head>
+    <body>
+     
+      <script type="text/javascript" src="cordova.js"></script>
+      <script type="text/javascript" src="mobileui/mobileui.js"></script>
+      <script type="text/javascript" src="js/index.js"></script>
 
-<head>
-  <link rel="stylesheet" type="text/css" href="mobileui/fonts.css">
-  <link rel="stylesheet" type="text/css" href="mobileui/style.css">
-  <meta name="format-detection" content="telephone=no">
-  <meta charset="utf-8">
-  <meta name="msapplication-tap-highlight" content="no">
-  <meta name="viewport"
-    content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-  <link rel="stylesheet" type="text/css" href="css/index.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <title>Controle de estoque</title>
-</head>
-
-<body id="tela_parede">
-
-  <script type="text/javascript" src="cordova.js"></script>
-  <script type="text/javascript" src="mobileui/mobileui.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-
-  <div class="header black-opacity-50" id="tela_menu">
-    <h3 class="align-center text-grey-50" id="titulo">Controle de Estoque<i class="fas fa-user"></i></h3>
-  </div>
-
-  <div class="buttons">
-      <div>
-        <button class="text-deep-purple-800 ion-plus-circled" onclick="produto_button()">
-        </button>
+      <div class="header black-opacity-50" id="tela_menu">
+        <h3 class="align-center text-grey-50" id="titulo">Controle de Estoque<i class="fas fa-user"></i></h3>
       </div>
-      <div  class=" float-bottom-left">
-        <button class="deep-purple-800 icon ion-document-text radius" onclick="estoque_button()">
-        </button>
-          <p style="text-align: center">Estoque</p> 
-      </div>
-      <div class="shadow float-bottom-right">
-        <button class="deep-purple-800 icon ion-clipboard radius" onclick="vendas_button()">
-        </button>
-        <p style="text-align: center">Vendas</p>
-      </div>
-    </div>
-
-</body>
+    
+      <div class="buttons">
+          <div>
+            <button class="text-deep-purple-800 ion-plus-circled" onclick="produto_button()" style="padding-top: 100px;">
+            </button>
+          </div>
+          <div  class=" float-bottom-left">
+            <button class="deep-purple-800 icon ion-document-text radius" onclick="estoque_button()">
+            </button>
+              <p style="text-align: center">Estoque</p> 
+          </div>
+          <div class="shadow float-bottom-right">
+            <button class="deep-purple-800 icon ion-clipboard radius" onclick="vendas_button()">
+            </button>
+            <p style="text-align: center">Vendas</p>
+          </div>
+        </div>
+    </body>
+    <script>
+      function estoque_button() {
+        window.location.assign("Estoque.html");
+      }
+      function vendas_button() {
+        window.location.assign("Vendas.html");
+      }
+      function produto_button() {
+        window.location.assign("Buscar_Produto.html");
+      }
+    
+    </script>
+    
+    <style>
+      .buttons button{
+        font-size: 70px;
+      }
+      .buttons p{
+        font-size: 16px;
+        color: grey;
+      }
+    </style>
 
 </html>
-
-<script>
-  function estoque_button() {
-    window.location.assign("Estoque.html");
-  }
-  function vendas_button() {
-    window.location.assign("Vendas.html");
-  }
-  function produto_button() {
-    window.location.assign("Buscar_produto.html");
-  }
-
-</script>
-
-<style>
-  .buttons button{
-    font-size: 70px;
-  }
-  .buttons p{
-    font-size: 16px;
-    color: grey;
-  }
-</style>
