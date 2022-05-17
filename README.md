@@ -1,2 +1,2 @@
-# app-controle-de-estoque
-projeto de estudo com phonegap/cordova
+# App Controle de Estoque
+Projeto de estudo com phonegap/cordova
